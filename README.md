@@ -1,49 +1,31 @@
-This repo is uploaded on behalf of [@SteinsGateON](https://space.bilibili.com/34714121).
+# TH15 绀珠传
 
-# th15
+[English](README.en.md) · [维护指南](docs/MAINTENANCE.md)
 
-[![QQ Group 1124121427](https://img.shields.io/badge/QQ%20Group-1124121427-12B7F5?logo=tencentqq)](https://qm.qq.com/q/eeUrxIltug?from=tim)
+本仓库维护《绀珠传》的 C++/SDL Runtime 及作品适配，作为 eagler-touhou 根目录 Git 子模块保留独立提交历史。游戏状态和原版文件语义由本仓库拥有；Web 启动器和站点交付由主项目 `launcher/web/` 拥有。
 
-A high-fidelity, portable reimplementation of 東方紺珠伝　～ Legacy of Lunatic Kingdom ver 1.00b.
+## 构建
 
-## Layout
+作为主项目子模块使用时，从 eagler-touhou 根目录执行：
 
-- `th15_web/`: TH15 game, SDL runtime, launcher, documentation, source tests, and original-game oracle comparison tools.
-- `portable/`: shared GLES renderer and input code.
-- `th08_web/`, `th09_web/`, `th10_web/`, `th11_web/`: dependency metadata and shared validation, packaging, and server helpers used by TH15.
-- `tools/`: the pinned Emscripten installer and local development input importer.
-
-## Build
-
-Install Python and Node.js 22 or newer, then install the pinned toolchain:
-
-```powershell
-python tools/download-emscripten.py
+```text
+npm run dependencies -- init th15
+npm run runtime -- th15 --emsdk "<SDK>" --font-root "<字体目录>"
 ```
 
-Restore local assets and test dependencies from the matching development package:
+主项目入口读取实际构建声明，不自动创建 worktree。具体输入及普通/多人选择见[Runtime 构建指南](https://github.com/YomotsuHisami/eagler-touhou/blob/main/docs/playbooks/runtime-build.md)。
 
-```powershell
-python tools/import-local-inputs.py "D:/path/to/TH15-1.0.3-development-20261005"
-node th15_web/scripts/build-sdl-application.mjs --release
-node th15_web/scripts/package-release.mjs
-```
+## 当前证据
 
-Run the original-game oracle comparisons:
+2026-10 工程整理：普通源码构建、目录 Runtime 打包通过；真实 DATA 的 Chromium 启动、进入游戏、存档写入/重载及自托管组装通过。本轮音乐为 none。 这些结果不代表所有关卡、机体、设备和模式均已完成验收。后续修改需要在本次声明之外补充受影响的实际行为验证。
 
-```powershell
-node th15_web/scripts/cpp/build.mjs
-node th15_web/scripts/cpp/test-suite.mjs local-oracle
-```
+## 源码与资源
 
-Build outputs are written below `th15_web/artifacts/` and are intentionally not tracked. See [build and test instructions](handoff/BUILD-AND-TEST.md) for the development package workflow.
+- `th15_web/cpp/game/`：作品规则、对象和生命周期。
+- `portable/`：本作使用的平台与绘制适配。
+- `third_party/eagler-common`：本作锁定的公共库版本。
+- `th15_web/scripts/build-sdl-application.mjs --release`：实际构建入口。
 
-The font raster oracle requires the Windows font environment recorded in `th15_web/assets/sdl-native/fonts/manifest.json`.
+不随源码提交原版 DATA、音乐、个人存档、Replay 或工具链。许可按各组件保留的 LICENSE/NOTICE 处理；不对原版游戏资源作统一授权声明。
 
-## Assets and licensing
-
-This repository does not include original Touhou executable, data, music, replay, save, or generated font files. A runnable package and original-game oracle tests must be assembled locally from files you are legally allowed to use. The importer verifies the development package's file hashes before copying local inputs.
-
-## License
-
-This project is licensed under the MIT License. Bundled third-party components retain their own licenses, including the launcher's [GPL-3.0 license](th15_web/launcher/LICENSE).
+原仓库的移植来源署名：[SteinsGateON](https://space.bilibili.com/34714121)。

@@ -2,7 +2,7 @@ import {installStartupBranding,finishStartupAnimation} from './startup-branding.
 import createModule from './th15.mjs';
 import {createBrowserKeyboard} from './directory-keyboard.mjs';
 import {scanCodes} from './keyboard.mjs';
-const runtimeBuild=/*TH15_BUILD_INFO*/{version:'development-incomplete',completeGame:false};
+import runtimeBuild from './build-info.mjs';
 const game='th15',protocol='eagler-touhou/1',query=new URLSearchParams(location.search),canvas=document.querySelector('canvas'),$=s=>document.querySelector(s);
 const epoch=Number(query.get('runtimeEpoch'));
 const validEpoch=Number.isSafeInteger(epoch)&&epoch>0;

@@ -1,6 +1,6 @@
 import createModule from './th15.mjs';
 import {scanCodes} from './keyboard.mjs';
-const runtimeBuild=/*TH15_BUILD_INFO*/{version:'development-incomplete',completeGame:false};
+import runtimeBuild from './build-info.mjs';
 const game='th15',protocol='eagler-touhou/1',query=new URLSearchParams(location.search),canvas=document.querySelector('canvas'),$=s=>document.querySelector(s);
 let core,launched=false,first=false,stopping=false,options={},music=true,chain=Promise.resolve(),queue=Promise.resolve();
 const emit=(event,fields={})=>parent.postMessage({protocol,game,event,...fields},location.origin);
