@@ -4,7 +4,7 @@ import {createServer} from 'node:http';
 import {readFile,readdir,mkdir,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {launchBrowser} from '../../../th10_web/scripts/native/browser-launch.mjs';
+import {launchBrowser} from '../../../tools/diagnostics/browser-launch.mjs';
 const root=fileURLToPath(new URL('../../',import.meta.url));
 for(const locked of [1,0])test('Actual browser retains native startup and visible stage transition (60Hz lock='+locked+')', {timeout:180000}, async()=>{
  assert.ok(process.env.TH15_ORIGINAL_DAT,'Set TH15_ORIGINAL_DAT');

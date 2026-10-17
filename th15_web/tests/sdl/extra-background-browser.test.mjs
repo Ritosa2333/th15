@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {createServer} from 'node:http';
 import {readFile,readdir,mkdir,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
-import {launchBrowser} from '../../../th10_web/scripts/native/browser-launch.mjs';
+import {launchBrowser} from '../../../tools/diagnostics/browser-launch.mjs';
 const root=resolve(import.meta.dirname,'../..');
 test('Extra background presentation diagnostic',{timeout:240000},async()=>{
  assert(process.env.TH15_ORIGINAL_DAT&&process.env.EAGLER_FONT_ROOT);

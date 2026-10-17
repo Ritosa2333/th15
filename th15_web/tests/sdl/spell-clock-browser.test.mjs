@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
-import {launchBrowser} from '../../../th10_web/scripts/native/browser-launch.mjs';
+import {launchBrowser} from '../../../tools/diagnostics/browser-launch.mjs';
 import {core,memory,string,root,report,sha} from '../cpp/helpers.mjs';
 import {launcherServer,startLauncherPage,runtimeFrame,rpc} from './launcher-fixture.mjs';
 test('Actual SDL presentation samples a real original-ECL spell and imports its replay timing',{timeout:600000},async()=>{

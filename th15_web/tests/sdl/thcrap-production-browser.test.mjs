@@ -5,7 +5,7 @@ import {readFile,mkdir,writeFile} from 'node:fs/promises';
 import {resolve,sep} from 'node:path';
 import {createHash} from 'node:crypto';
 import {unzipSync} from 'fflate';
-import {launchBrowser} from '../../../th10_web/scripts/native/browser-launch.mjs';
+import {launchBrowser} from '../../../tools/diagnostics/browser-launch.mjs';
 const project=resolve(import.meta.dirname,'../..'),runtime=resolve(project,'../build-eagler');
 const languages=process.env.TH15_LANGUAGE_PACKS;
 test('TH15 production protocol mounts official language ZIPs, fonts and translated title/music', {timeout:240000},async()=>{

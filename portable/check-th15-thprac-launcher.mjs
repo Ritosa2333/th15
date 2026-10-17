@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {resolve} from 'node:path';
-import {launchBrowser} from '../th10_web/scripts/native/browser-launch.mjs';
+import {launchBrowser} from '../tools/diagnostics/browser-launch.mjs';
 const browser=await launchBrowser();
 try{
  const page=await browser.newPage({viewport:{width:1280,height:900}}),errors=[];

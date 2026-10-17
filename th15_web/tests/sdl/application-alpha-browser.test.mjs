@@ -1,4 +1,4 @@
-import test from 'node:test';import assert from 'node:assert/strict';import{createServer}from'node:http';import{readFile,writeFile,readdir}from'node:fs/promises';import{resolve}from'node:path';import{launchBrowser}from'../../../th10_web/scripts/native/browser-launch.mjs';import{root,report,sha}from'../cpp/helpers.mjs';
+import test from 'node:test';import assert from 'node:assert/strict';import{createServer}from'node:http';import{readFile,writeFile,readdir}from'node:fs/promises';import{resolve}from'node:path';import{launchBrowser}from'../../../tools/diagnostics/browser-launch.mjs';import{root,report,sha}from'../cpp/helpers.mjs';
 test('Application sprite transparency survives initial title, game entry and title return at both physical scales',{timeout:600000},async()=>{
  const label=process.env.TH15_ALPHA_LABEL||'alpha-hotfix';assert.match(label,/^[a-z0-9-]+$/);
  const songs=(await readdir(resolve(root,'assets/music'))).filter(n=>n.endsWith('.ogg'));

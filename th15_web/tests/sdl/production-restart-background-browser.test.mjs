@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {execFileSync} from 'node:child_process';
-import {launchBrowser} from '../../../th10_web/scripts/native/browser-launch.mjs';
+import {launchBrowser} from '../../../tools/diagnostics/browser-launch.mjs';
 import {root,report} from '../cpp/helpers.mjs';
 import {launcherServer,startLauncherPage,runtimeFrame,rpc} from './launcher-fixture.mjs';
 test('Production launcher Pointdevice retry displays the original patterned Restart backdrop',{timeout:300000},async()=>{

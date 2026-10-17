@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {createServer} from 'node:http';
 import {readFile,writeFile,readdir} from 'node:fs/promises';
 import {resolve} from 'node:path';
-import {launchBrowser} from '../../../th10_web/scripts/native/browser-launch.mjs';
+import {launchBrowser} from '../../../tools/diagnostics/browser-launch.mjs';
 import {root,sha,report} from '../cpp/helpers.mjs';
 const assets=(await readdir(resolve(root,'reference/assets'))).filter(n=>!n.endsWith('.dat'));
 const fonts=(await readdir(resolve(root,'assets/sdl-native/fonts'))).filter(n=>/^(font[0-7]|cp932|blend4444)\.bin$/.test(n));

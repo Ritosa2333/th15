@@ -4,7 +4,7 @@ import {createServer} from 'node:http';
 import {readFile,readdir,mkdir,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {launchBrowser} from '../../../th10_web/scripts/native/browser-launch.mjs';
+import {launchBrowser} from '../../../tools/diagnostics/browser-launch.mjs';
 const root=fileURLToPath(new URL('../../',import.meta.url));
 test('Profile real chapter/spell progression before and after bounded checkpoint compression', {timeout:600000}, async()=>{
  assert.ok(process.env.TH15_ORIGINAL_DAT,'Set TH15_ORIGINAL_DAT to the private original th15.dat');

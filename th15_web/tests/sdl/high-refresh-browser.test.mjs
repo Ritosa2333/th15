@@ -5,7 +5,7 @@ import {readFile,readdir,mkdir,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {analyzeNormalizedWindow} from '../../../third_party/eagler-common/testkit/presentation-lab/analyzer.mjs';
-import {launchBrowser} from '../../../th10_web/scripts/native/browser-launch.mjs';
+import {launchBrowser} from '../../../tools/diagnostics/browser-launch.mjs';
 const root=fileURLToPath(new URL('../../',import.meta.url));
 test('60/120/144/165/240 Hz RAF retains fixed logical ticks and interpolated presentation submissions', {timeout:600000}, async()=>{
  assert.ok(process.env.TH15_ORIGINAL_DAT,'Set TH15_ORIGINAL_DAT to the private original th15.dat');

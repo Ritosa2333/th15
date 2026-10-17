@@ -5,7 +5,7 @@ import {readFile,readdir,mkdir,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import assert from 'node:assert/strict';
-import {launchBrowser} from '../../../th10_web/scripts/native/browser-launch.mjs';
+import {launchBrowser} from '../../../tools/diagnostics/browser-launch.mjs';
 import {digestCanonicalJson,recordsFromSegments} from '../../../third_party/eagler-common/testkit/replay-verifier/adapter.mjs';
 import {writeTraceJsonLines,readTraceJsonLines} from '../../../third_party/eagler-common/testkit/replay-verifier/trace-jsonl.mjs';
 import {compareTraces} from '../../../third_party/eagler-common/testkit/replay-verifier/compare.mjs';

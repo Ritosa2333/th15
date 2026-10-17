@@ -1,4 +1,4 @@
-import test from 'node:test';import assert from 'node:assert/strict';import {createServer} from 'node:http';import {readFile,writeFile} from 'node:fs/promises';import {createHash} from 'node:crypto';import {launchBrowser} from '../../../th10_web/scripts/native/browser-launch.mjs';
+import test from 'node:test';import assert from 'node:assert/strict';import {createServer} from 'node:http';import {readFile,writeFile} from 'node:fs/promises';import {createHash} from 'node:crypto';import {launchBrowser} from '../../../tools/diagnostics/browser-launch.mjs';
 const project=new URL('../../',import.meta.url),output=new URL('artifacts/sdl-store/',project),sha=b=>createHash('sha256').update(b).digest('hex');
 test('TH15 production SDL store preserves player score/config/replay through an actual browser IDBFS reload',async()=>{
  const files=new Map([['/module.mjs',new URL('th15-store.mjs',output)],['/th15-store.wasm',new URL('th15-store.wasm',output)],['/demo.rpy',new URL('reference/assets/demo0.rpy',project)]]),errors=[];

@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import {createServer} from 'node:http';
 import {readFile,readdir,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
-import {launchBrowser} from '../th10_web/scripts/native/browser-launch.mjs';
+import {launchBrowser} from '../tools/diagnostics/browser-launch.mjs';
 const root=resolve(import.meta.dirname,'../th15_web'),build=resolve(root,'artifacts/thprac-purple-browser-check'),assets=resolve(root,'artifacts/thprac-private-assets');
 const fonts=(await readdir(resolve(assets,'fonts'))).filter(n=>n.endsWith('.bin'));
 const files=new Map([['/module.mjs',resolve(build,'th15-application.mjs')],['/th15-application.wasm',resolve(build,'th15-application.wasm')],['/th15.dat',resolve(assets,'th15.dat')],['/unifont.otf',resolve(assets,'unifont.otf')],...fonts.map(n=>['/fonts/'+n,resolve(assets,'fonts',n)])]);

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {createServer} from 'node:http';
 import {readFile,mkdir,writeFile} from 'node:fs/promises';
 import {resolve,sep} from 'node:path';
-import {launchBrowser} from '../../../th10_web/scripts/native/browser-launch.mjs';
+import {launchBrowser} from '../../../tools/diagnostics/browser-launch.mjs';
 const site=process.env.TH15_HOST_SITE;
 test('TH15 real assembled Launcher selects and installs each prepared language',{timeout:240000,skip:!site},async()=>{
  const root=resolve(site),out=resolve(import.meta.dirname,'../../artifacts/thcrap-launcher');await mkdir(out,{recursive:true});
